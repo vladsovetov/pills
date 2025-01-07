@@ -1,41 +1,14 @@
-import { Image, StyleSheet, Platform, Text } from 'react-native';
-
-import { HelloWave } from '@/components/HelloWave';
-import ParallaxScrollView from '@/components/ParallaxScrollView';
-import { ThemedView } from '@/components/ThemedView';
+import { Link } from "expo-router";
+import { Text, View } from "react-native";
+import { ROUTES } from "./routes";
 
 export default function HomeScreen() {
   return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <Text className=''>
-        Hello
-      </Text>
-    </ParallaxScrollView>
+    <View className="flex-1 items-center justify-center">
+      <Text className="text-2xl font-bold">Home</Text>
+      <Link href={ROUTES.CALENDAR.ROOT}>
+        <Text className="text-blue-500">Go to Calendar</Text>
+      </Link>
+    </View>
   );
 }
-
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
